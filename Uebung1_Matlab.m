@@ -1,14 +1,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Filename: ‹bung1.m
+% Filename: √úbung1.m
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Beschreibung: Angewandte Numerik 1 ‹bungsblatt 1
+% Beschreibung: Angewandte Numerik 1 √úbungsblatt 1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Autor: S. Maschke
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Verlauf= 27.04.2020: File erstellt, S. Maschke
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Loeschen der Variablen, Aufraeumen des COMMAND Windows und Schlieﬂen
+% Loeschen der Variablen, Aufraeumen des COMMAND Windows und Schlie√üen
 % aller Graphiken
 % Achtung: Vermeidet Fehler beim Kennenlernen von Matlab
 clear 
