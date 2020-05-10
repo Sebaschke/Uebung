@@ -1,0 +1,19 @@
+function [norm] = mynorm(A,flag)
+% MYNORM - Norm Function
+%   Syntax:   [norm] = mynorm(A,flag)
+%   Input:    A - Array (m x n Matrix)
+%             flag - type of matrixnorm
+%   Output:   norm - value of the specified norm
+
+switch flag
+    case 'one'
+        % calculate one vector norm respectively columnsum of matrix
+        norm = max(A
+    case 'infinity'
+        % calculate infinity vector norm respectively rowsum of matrix
+        fprintf('Case infinity\n')
+        
+    case 'frobenius'
+
+end
+
