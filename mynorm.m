@@ -11,10 +11,10 @@ switch flag
         norm = max((A.')*ones(size(A,1),1));
     case 'infinity'
         % calculate infinity vector norm respectively rowsum of matrix
-        norm = max(A*ones(size(A,1),1));
+        norm = max(A*ones(size(A,2),1));
         
     case 'frobenius'
         % calculate two vector norm respectively frobenius norm of matrix
-        norm = sqrt(sum((A.^2), 'all'));
+        norm = sqrt(sum((abs(A).^2), 'all'));
 end
 
