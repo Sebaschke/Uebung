@@ -1,4 +1,4 @@
-function [L, R, P, d] = lrPivot(A)
+function [L, R, P] = lrPivotNoScale(A)
 % LR_PIVOT    - LR-Zerlegung mit Zeilenskalierung und Spaltenpivotisierung 
 %               einer Matrix A
 %   Syntax:   [L, R, P, d] = lrPivot(A)
@@ -8,14 +8,6 @@ function [L, R, P, d] = lrPivot(A)
 %             P - Permutationmatrix
 %             d - Vector with Diagonalelements of D
 [n,m] = size(A);
-
-d = rand(n,1);     % preallocate vector
-for i=1:n
-    d(i) = 1/sum(abs(A(i,:)));      % Skript S. 69
-    for j=1:n
-        A(i,j) = d(i)*A(i,j);
-    end
-end
 
 r = 1:n-1;      % preallocate vector
 for j = 1:(n-1)

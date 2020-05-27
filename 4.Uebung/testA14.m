@@ -1,10 +1,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Filename: Exercise15_test.m
+% Filename: testA14.m
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Beschreibung: Angewandte Numerik 1 Aufgabe 15
-%               Dieses Skript soll zu Testzwecken die durchgeführte 
-%               LR Zerlgung mit Zeilenskalierung und
-%               Spaltenpivotisierung testen 
+%               Dieses Skript soll für die in Aufgabe 14 dargstellte Matrix
+%               eine numerische Lösung einmal ohne Pivotisierung und einmal
+%               mit Pivotisierung lösen
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Autor: S. Maschke
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -15,20 +15,19 @@ clear
 clc
 close all
 
+
 A = [2 3 -1 0;
     -6 -5 0 2;
     2 -5 6 -6;
     4 6 2 -3];
 b = [20; -33; -43; 49];
 
-% Test of lu-disassembly with pivoting
-[L, R, P, d] = lrPivot(A)
+% without pivoting
+disp('LR disassembly without pivoting')
+[L, R] = gaussLR(A);
+x = solveLR(L, R, b)
 
- % [L1, R1, P1] = myLUCols(A)   % without scaling 
-[L2, R2, P2] = myLUCols(A)      % with row scaling
-
-% Lösung eines LR-zerlegten Problems
-% x = solveLrPivot(L, R, P, d, b)
-
-% Matlab intern
-X = linsolve(A,b)
+% with scaling and pivoting
+disp('LR disassembly with scaling and pivoting')
+[L, R, P, d] = lrPivot(A);
+x = solveLrPivot(L, R, P, d, b)

@@ -1,20 +1,18 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Filename: Exercise8_main8.m
+% Filename: testConvert.m
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Beschreibung: Angewandte Numerik 1 Aufgabe 8
-%               Dieses Skript testet die selbst erstellte 
-%               Matlab-Funktion normalizeMat()
-%               zur Durchführung einer Äquilibrierung einer regulären 
-%               Matrix 
+% Beschreibung: Angewandte Numerik 1 Aufgabe 17
+%               This script tests the convert2basis function
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Autor: S. Maschke
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Verlauf= 14.05.2020: File erstellt, S. Maschke
+% Verlauf= 27.05.2020: File erstellt, S. Maschke
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clear 
 clc
 close all
-L = [1 0 0; -2 1 0; 3 -4 1];
-R = [6 -4 7; 0 -3 2; 0 0 9];
-A = L*R
+
+a = convert2basis(30, 2)
+b = convert2basis(30, 8)
+c = convert2basis(30, 16)
