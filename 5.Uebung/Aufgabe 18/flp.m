@@ -7,7 +7,11 @@ function [d, v, t] = flp(b, m, n, x)
 %             m - lenth of mantissa
 %             n - length of exponent
 %             x - value to get flp representation
-%   Output:   x - value of floating point representation
+%   Output:   d - coefficients of mantissa stored in row vector
+%             v - coefficients of exponent stored as row vector
+%             t - sign of exponent {-1, 1}
+
+
 
 
 end
