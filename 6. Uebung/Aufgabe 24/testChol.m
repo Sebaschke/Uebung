@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Filename: testChol.m
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Beschreibung: Angewandte Numerik 1 Aufgabe 24
+% Beschreibung: Angewandte Numerik 1 Aufgabe 24 b)
 %               This script executes cholesky disassembly for different
 %               matrizes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -62,5 +62,7 @@ if abs(A3 - L*D*L') < 10e-5
 else
     fprintf('Not succesful\n\n')
 end
+
+
 
 

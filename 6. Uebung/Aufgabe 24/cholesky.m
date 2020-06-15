@@ -6,10 +6,10 @@ function [L, D] = cholesky(A)
 %   Output:   L - lower triangular matrix 
 %             D - diagonal matrix (d_ii !> 0)
 %
-% This function works with many loops instead of vectorization. Other
-% solution needs time.
+% This function works with loops instead of vectorization. Tried other
+% solution but did not work out.
 
-n =length(A);          % dimension of A
+n =length(A);           % dimension of A
 
 % iterate over columns
 for k=1:n

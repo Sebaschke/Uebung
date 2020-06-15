@@ -34,7 +34,7 @@ for j=1:1
     timeG = zeros(1, i_max - i_min + 1);    % gausLR
     timeC = zeros(1, i_max - i_min + 1);    % cholesky
 
-    % iterate over dimensions; 
+    % iterate over dimensions 
     for i = i_min:i_max
         n(i - (i_min - 1)) = 2^i;           % store beginning from n(1) the number of dimensions
         
@@ -57,27 +57,39 @@ for j=1:1
         timeG(i-(i_min - 1)) = toc;
         fprintf('%d\n', timeG(i-(i_min - 1)));
         
-        % cholesky
-        fprintf('---Cholesky Algorithmus: ');
-        tic;
-        [L, D] = cholesky(A);
-        timeC(i-(i_min - 1)) = toc;
-        fprintf('%d\n\n', timeC(i-(i_min - 1)));
+%         % cholesky
+%         fprintf('---Cholesky Algorithmus: ');
+%         tic;
+%         [L, D] = cholesky(A);
+%         timeC(i-(i_min - 1)) = toc;
+%         fprintf('%d\n\n', timeC(i-(i_min - 1)));
     end
     
     % plot
+    subplot(2,1,1);                                    % plot times
     loglog(n, time, '*r')
     hold on;
     loglog(n, timeG, '+g')
+%     hold on;
+%     loglog(n, timeC, 'ob')
+%     grid on;
+%    legend('Thomas', 'Gauss', 'Cholesky');
+    legend('Thomas', 'Gauss');
+
+    
+    % plot again with regression
+    subplot(2,1,2);                                    % plot time and regression line
+    loglog(n, time, '*r')
     hold on;
-    loglog(n, timeC, 'ob')
-    grid on;
-       
-    if (flag == 1)
-        loglog(n, polyval(polyfit(n, time, 1), n), 'r-');
-        loglog(n, polyval(polyfit(n, timeG, 1), n), 'g-');
-        loglog(n, polyval(polyfit(n, timeC, 1), n), 'b-');
-    end
-    legend('Thomas', 'Gauss', 'Cholesky', 'g_{thomas}', 'g_{gauss}', 'g_{chol}');
+    loglog(n, timeG, '+g')
+%     hold on;
+%     loglog(n, timeC, 'ob')
+%     grid on;
+    loglog(n, polyval(polyfit(n, time, 1), n), 'r-');
+    loglog(n, polyval(polyfit(n, timeG, 1), n), 'g-');
+%    loglog(n, polyval(polyfit(n, timeC, 1), n), 'b-');
+%    legend('Thomas', 'Gauss', 'Cholesky', 'g_{thomas}', 'g_{gauss}', 'g_{chol}');
+    legend('Thomas', 'Gauss', 'g_{thomas}', 'g_{gauss}');
+
 end
 
