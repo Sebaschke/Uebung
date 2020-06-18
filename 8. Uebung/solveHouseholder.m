@@ -27,6 +27,10 @@ x = ones(n,1);          % allocate size for result
 
 % solve with backward pass
 for i=n:-1:1
-    x(i) = (1/R(i,i)) * (b(i) - R(i,i+1:n)*x(i+1:n)); 
+    if n>=2
+        x(i) = (1/R(i,i)) * (b(i) - R(i,i+1:n)*x(i+1:n)); 
+    else
+        x(i) = (1/R(i,i)) * b(i);
+    end
 end
 end
