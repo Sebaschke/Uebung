@@ -11,7 +11,7 @@
 clc;
 clear all;
 
-A = [1 1; 1e-50 0; 0 1e-5];
+A = [1 1; 1e-5 0; 0 1e-5];
 % a) Condition number of A
 condA = cond(A)
 
