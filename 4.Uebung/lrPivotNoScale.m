@@ -1,6 +1,6 @@
 function [L, R, P] = lrPivotNoScale(A)
 % LR_PIVOT    - LR-Zerlegung mit Zeilenskalierung und Spaltenpivotisierung 
-%               einer Matrix A
+%               einer Matrix A ohne Zeilenskalierung
 %   Syntax:   [L, R, P, d] = lrPivot(A)
 %   Input:    A - square Matrix
 %   Output:   L - lower-left matrix 

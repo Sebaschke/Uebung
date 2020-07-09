@@ -8,11 +8,12 @@ function xk = bisektion1(f, a, b, tolx)
 %             tolx - accuracy limit
 %   Output:   xk - vector of approximated function zeros
 
-k = 0;                      % counter for iteration
-xk = [];                    % define empty vector
+k = 1;                              % counter for iteration
+n = ceil(log((b-a)/tolx)/log(2))    % 
+xk = 1:n;                           % define empty vector
 
 fprintf('Bisection\n');
-fprintf('Intervall after %d.Iteration: [a, b] = [%d, %d]\n', k, a, b); 
+fprintf('Intervall after %d.Iteration: [a, b] = [%d, %d]\n', k-1, a, b); 
 if a < b && f(a)*f(b) < 0
    while abs(a - b) > tolx
         x = (1/2) * (a + b);
@@ -22,13 +23,12 @@ if a < b && f(a)*f(b) < 0
         else
             a = x;
         end
-        xk = [xk; abs(a+b)/2];
+        xk(k) = abs(a+b)/2;
         k = k + 1;
-        fprintf('Intervall after %d.Iteration: [a, b] = [%d, %d]\n', k, a, b); 
+        fprintf('Intervall after %d.Iteration: [a, b] = [%d, %d]\n', k-1, a, b); 
    end
    fprintf('Resolution reached\n');
 else 
     fprintf('Error: Either a is not smaller than b or there is no sign changen in the intervall [a; b]\n'); 
 end
-xk = double(xk);
 end

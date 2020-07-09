@@ -66,13 +66,13 @@ maxIt = 100;
 % calculate exakt solution x*
 x_ = fzero(f, 1);
 
-fprintf('\n**Solve f(x) = x^2 - 5\n');
+fprintf('\n**Solve f(x) = (x - 1)^2\n');
 
 % call bisketion1
 a = -0.1;
 b = 3;
 xk = bisektion1(f, a, b, 1e-10);
-delta = abs(xk - x_);
+delta = abs(xk - x_);           % does not yield a solution
 
 % call newton1d
 syms x;                 % had to be redefined 
@@ -89,14 +89,16 @@ delta_s = abs(xk3 - x_);
 
 % print graph
 figure(3);
-semilogy(delta);
-xlabel('number of iterations k');
-ylabel('log(|x* - x_k|');
-title(sprintf('|x* - x_k| of bisection method for f(x) = %s ', func2str(f)));
-grid on;
-hold on; 
 semilogy(delta_n);
 hold on; 
 semilogy(delta_s);
-legend('bisection', 'newton', 'sekanten');
+grid on;
+title(sprintf('|x* - x_k| of different methods for f(x) = %s ', func2str(f)));
+xlabel('number of iterations k');
+ylabel('log(|x* - x_k|');
+legend('newton', 'sekanten');
+
+% confirm methods found the zero
+fprintf('Real zero x = %d; found with newton x = %d\n', x_, xk2(length(xk2)));
+fprintf('Real zero x = %d; found with newton x = %d\n', x_, xk3(length(xk3)));
 

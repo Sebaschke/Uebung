@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Filename: testKonvergenz.m
+% Filename: testNewton1D.m
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Beschreibung: Angewandte Numerik 1 Aufgabe 4 
+% Beschreibung: Angewandte Numerik 1 Aufgabe 42 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Autor: S. Maschke
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -17,6 +17,7 @@ f = @(x) x^2 - 5;
 x0 = 1;
 toly = 1e-10;
 maxIt = 100;
+% xk = newton1D(f, @(x)diff(f(x)), x0, toly, maxIt);
 xk = newton1D(f, eval(['@(x)', char(diff(f(x)))]), x0, toly, maxIt);
 
 fprintf('Solution is x_k = %d\n', xk(length(xk)));

@@ -12,12 +12,11 @@ function xk = sekanten(f, a, b, toly, maxIt)
 k = 2;                        % counter for iteration
 xk = [a b];                   % x0 and x1
 
-fprintf('Secanten\n');
+fprintf('Secanten [x_k-1, x_k] = [%d, %d]\n', a, b);
 while abs(f(xk(k))) > toly && k < maxIt
     xk = [xk, (xk(k) - f(xk(k))*((xk(k)-xk(k-1))/(f(xk(k)) - f(xk(k-1)))))];
-    fprintf('%d.Iteration: x_k = %d,  f(x_k) = %d\n', k-1, xk(k+1), f(xk(k+1))); 
+    fprintf('%d.Iteration: x_k = %d,  f(x_k) = %d, x_k+1 - xk = %d\n', k-1, xk(k+1), f(xk(k+1)), xk(k+1) - xk(k)); 
     k = k + 1;
 end
 fprintf('Resolution reached\n');
-xk = double(xk);
 end

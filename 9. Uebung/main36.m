@@ -41,7 +41,7 @@ uitable('Data',T{:,:},'ColumnName',T.Properties.VariableNames,...
 
 % f) plot iterationsfunctions and bisecting angle (= Winkelhalbierende)
 ba = x;                         % bisecting angle
-phi1 = 5 + x + x^2;             % phi1 
+phi1 = 5 + x - x^2;             % phi1 
 phi2 = 5/x;                     % phi2
 phi3 = 1 + x - (1/5) * x^2;     % phi3
 phi4 = (1/2) * (x + 5/x);       % phi4
