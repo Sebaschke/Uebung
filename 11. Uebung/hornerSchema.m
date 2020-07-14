@@ -1,7 +1,7 @@
 function pt = hornerSchema(a, t)
 % HORNER_SCHEMA    - Efficiently evaluates a polynomial of form 
 %                    p(x) = sigma(ak * x^k) at different positions t
-%   Syntax:     pt = hornerSchema(a, t)
+%   Syntax:     pt - hornerSchema(a, t)
 %   Input:      a  - coefficients of polynom
 %               t  - positions where polynom should be evaluated
 %   Output:     pt - solution vector
@@ -9,7 +9,7 @@ function pt = hornerSchema(a, t)
 anz = length(t);        % number of solutions 
 pt = (1:anz).';         % allocate solution vector as column vector
 k = length(a);          % number of coefficients of polynom
-a = flipud(a);          % change to ascending order
+a = flipud(a);          % change to ascending order, alternative a(end:-1:1)
 b = a;                  % store temporary results in b
 
 % iterate over number of solutions
