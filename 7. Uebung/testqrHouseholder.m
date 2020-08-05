@@ -42,3 +42,34 @@ plot(t, b2, ':', t, A2*x2, '-');
 hold on; 
 title('Linear regression problem');
 legend('measurements', 'regression points');
+
+% Beispiel Durchführung der QR-Zerlegung mit Householder Matrizen. Jede
+% Matrix Qv explizit aufstellen
+A = [1 -11/12 3;
+    2 0 0;
+    2 -1 6];
+
+% hand written results
+Q_v1 = [-1/3 -2/3 -2/3; 
+    -2/3 2/3 -1/3; 
+    -2/3 -1/3 2/3];
+Q_v2 = [1 0 0;
+    0 -4/5 -3/5;
+    0 -3/5 4/5];
+Qt = Q_v2 * Q_v1    % transponiertes Q (Qt * A = R => Q^-1 * R = A)
+Q = Qt'
+R = Q_v2*Q_v1*A
+cond_Q = cond(Q)
+condQ_man = norm(inv(Q), 2)*norm(Q,2)
+lambda = sqrt(max(eig(Q'*Q)))     % manuelle Berechnung der relativen Konditionszahl zur 2-Norm
+
+
+% matlab intern implementation
+[Q_in, R_in] = qr(A)
+condQ_in = cond(Q_in)
+
+% online qr zerlegung (http://elsenaju.info/Rechner/QR-Zerlegung.htm)
+Q_online = [-1/3 0.933 0.133;
+    -2/3 -1/3 2/3;
+    -2/3 -0.133 -0.733]
+condQ_online = cond(Q_online)
